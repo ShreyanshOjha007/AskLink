@@ -1,18 +1,14 @@
 package com.askLink.backend.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@Builder
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserResponse {
 
-    private String kindeId;
-    private String email;
+    private String userId;
     private String name;
-
+    private String email;
 }

@@ -1,14 +1,14 @@
+'use client'
+import {useEffect} from "react";
+import {useRouter} from "next/navigation";
 
-import {useRouter} from "next/router";
-import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
-import {redirect} from "next/navigation";
+const Page = () => {
 
-const Page = async () => {
-    const { getUser } = getKindeServerSession()
-    const user = await getUser()
+    const router = useRouter();
 
-    redirect('/auth-callback?origin=dashboard')
-
+    useEffect(() => {
+        router.push("/auth-callback");
+    }, [router]);
 
     return (
         <div>
