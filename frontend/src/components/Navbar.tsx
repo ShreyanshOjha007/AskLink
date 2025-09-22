@@ -1,8 +1,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Link from "next/link";
 import {buttonVariants} from "@/components/ui/button";
-import {LoginLink, RegisterLink} from "@kinde-oss/kinde-auth-nextjs/server";
-import {ArrowRight} from "lucide-react";
 
 const Navbar = () => {
     return (
@@ -26,17 +24,18 @@ const Navbar = () => {
                             })}>
                                 Pricing
                             </Link>
-                            <LoginLink className={buttonVariants({
-                            variant: "ghost",
-                            size: 'sm'
+                            <Link href="/login" className={buttonVariants({
+                                variant: "ghost",
+                                size: 'sm'
                             })}>
-                                Sign In
-                            </LoginLink>
-                            <RegisterLink className={buttonVariants({
-                            size: 'sm'
+                                Login
+                            </Link>
+                            <Link href="/sign-up" className={buttonVariants({
+                                variant: "secondary",
+                                size: 'sm'
                             })}>
-                                Get started <ArrowRight className='ml-1.5 h-5 w-5'/>
-                            </RegisterLink>
+                                Sign-up
+                            </Link>
 
                         </>
                     </div>
