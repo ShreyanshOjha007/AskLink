@@ -4,6 +4,8 @@ import "./globals.css";
 import {cn} from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import AuthProvider from "@/context/AuthContext";
+import {Toaster} from "react-hot-toast";
+import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +38,7 @@ export default function RootLayout({
         <AuthProvider>
             <Navbar/>
             {children}
+            <Toaster position="top-center" reverseOrder={false} />
         </AuthProvider>
       </body>
     </html>
