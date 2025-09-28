@@ -6,18 +6,21 @@ interface AuthContextType {
     token: string | null;
     login: (token: string) => void;
     logout: () => void;
+    loading: boolean;
 }
 
 const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
 
-export default function AuthProvider ({children}: { children: React.ReactNode}) {
+export default function AuthProvider({ children }: { children: React.ReactNode }) {
     const [token, setToken] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
     useEffect(() => {
         const savedToken = localStorage.getItem("token");
-        if(savedToken) setToken(savedToken);
-    },[]);
+        if (savedToken) setToken(savedToken);
+        setLoading(false); // finished loading token
+    }, []);
 
     const login = (newToken: string) => {
         localStorage.setItem("token", newToken);
@@ -31,11 +34,12 @@ export default function AuthProvider ({children}: { children: React.ReactNode}) 
     };
 
     return (
-        <AuthContext.Provider value={{token, login, logout }}>
+        <AuthContext.Provider value={{ token, login, logout, loading }}>
             {children}
         </AuthContext.Provider>
     );
 }
+
 
 export function useAuth() {
     const context = useContext(AuthContext);

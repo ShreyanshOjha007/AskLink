@@ -31,6 +31,7 @@ public class JwtUtil {
         return extractAllClaims(token).getExpiration().before(new Date());
     }
 
+    //username = email
     public String extractUsername(String token){
         return extractAllClaims(token).getSubject();
     }

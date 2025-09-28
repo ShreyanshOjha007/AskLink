@@ -8,7 +8,6 @@ import lombok.Getter;
 @AllArgsConstructor
 public class UserResponse {
 
-    private String userId;
     private String name;
     private String email;
 }

@@ -9,7 +9,6 @@ import com.askLink.backend.service.AppUserDetailsService;
 import com.askLink.backend.service.UserService;
 import com.askLink.backend.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.grammars.hql.HqlParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
